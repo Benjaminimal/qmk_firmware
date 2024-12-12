@@ -34,9 +34,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
     [SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_TRNS, KC_TILD, KC_PIPE, KC_AT, KC_QUOT, KC_GRV, KC_NO, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_TRNS,
+            KC_TRNS, KC_TILD, KC_PIPE, KC_NUHS, KC_DLR, KC_PERC, KC_NO, KC_AMPR, KC_ASTR, KC_LBRC, KC_RBRC, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_TRNS, KC_EXLM, KC_DQUO, KC_NUHS, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TRNS,
+            KC_TRNS, KC_EXLM, KC_DQUO, KC_AT, KC_QUOT, KC_GRV, KC_CIRC, KC_LPRN, KC_RPRN, KC_LCBR, KC_RCBR, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_NO, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
