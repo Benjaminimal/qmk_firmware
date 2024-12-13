@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             KC_NUBS, LGUI_T(KC_Z), LALT_T(KC_X), LCTL_T(KC_C), LSFT_T(KC_V), KC_B, KC_N, RSFT_T(KC_M), RCTL_T(KC_COMM), RALT_T(KC_DOT), RGUI_T(KC_SLSH), QK_LLCK,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        MO(NUM), KC_SPC, MO(FNC), MO(MTA), MO(SYM), MO(NAV)
+                                        OSL(NUM), KC_SPC, OSL(FNC), OSL(MTA), OSL(SYM), OSL(NAV)
                                       //`--------------------------'  `--------------------------'
         ),
     [SYM] = LAYOUT_split_3x6_3(
