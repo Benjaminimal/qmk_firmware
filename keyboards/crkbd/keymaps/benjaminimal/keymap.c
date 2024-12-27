@@ -10,6 +10,10 @@
 #define FNC 4
 #define MTA 5
 
+enum my_keycodes {
+  MY_1 = SAFE_RANGE,  // Workaround KC_1 to enable usage of LCTL_T for KC_EXLM
+};
+
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -43,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
             KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PSLS, KC_PMNS, KC_PAST, KC_PPLS, KC_EQL, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_TRNS, LCTL_T(KC_1), LGUI_T(KC_2), LALT_T(KC_3), RSFT_T(KC_4), KC_5, KC_6, LSFT_T(KC_7), RALT_T(KC_8), RGUI_T(KC_9), RCTL_T(KC_0), KC_TRNS,
+            KC_TRNS, LCTL_T(MY_1), LGUI_T(KC_2), LALT_T(KC_3), RSFT_T(KC_4), KC_5, KC_6, LSFT_T(KC_7), RALT_T(KC_8), RGUI_T(KC_9), RCTL_T(KC_0), KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             QK_LLCK, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_NO, KC_NO, KC_RSFT, RALT_T(KC_COMM), RGUI_T(KC_DOT), KC_RCTL, QK_LLCK,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -101,6 +105,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LCTL_T(MY_1):
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_1);
+                return false;
+            }
+            break;
         ENABLE_MOD_TAP(LCTL_T, KC_EXLM)
         ENABLE_MOD_TAP(LGUI_T, KC_DQUO)
         ENABLE_MOD_TAP(LALT_T, KC_AT)
