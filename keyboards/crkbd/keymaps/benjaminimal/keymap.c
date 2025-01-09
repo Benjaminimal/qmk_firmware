@@ -34,9 +34,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
     [SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_TRNS, KC_TILD, KC_PIPE, KC_NUHS, KC_DLR, KC_PERC, KC_NO, KC_AMPR, KC_ASTR, KC_LBRC, KC_RBRC, KC_TRNS,
+            KC_TRNS, KC_TILD, KC_PIPE, KC_NUHS, KC_DLR, KC_PERC, KC_NO, KC_AMPR, KC_ASTR, KC_LCBR, KC_RCBR, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_TRNS, LCTL_T(KC_EXLM), LGUI_T(KC_DQUO), LALT_T(KC_AT), RSFT_T(KC_QUOT), KC_GRV, KC_CIRC, LSFT_T(KC_LPRN), RALT_T(KC_RPRN), RGUI_T(KC_LCBR), RCTL_T(KC_RCBR), KC_TRNS,
+            KC_TRNS, LCTL_T(KC_EXLM), LGUI_T(KC_DQUO), LALT_T(KC_AT), RSFT_T(KC_QUOT), KC_GRV, KC_CIRC, LSFT_T(KC_LPRN), RALT_T(KC_RPRN), RGUI_T(KC_LBRC), RCTL_T(KC_RBRC), KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             QK_LLCK, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_NO, KC_NO, KC_RSFT, KC_RALT, KC_RGUI, KC_RCTL, QK_LLCK,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -116,8 +116,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         ENABLE_MOD_TAP(LALT_T, KC_AT)
         ENABLE_MOD_TAP(LSFT_T, KC_LPRN)
         ENABLE_MOD_TAP(RALT_T, KC_RPRN)
-        ENABLE_MOD_TAP(RGUI_T, KC_LCBR)
-        ENABLE_MOD_TAP(RCTL_T, KC_RCBR)
+        ENABLE_MOD_TAP(RGUI_T, KC_LBRC)
+        ENABLE_MOD_TAP(RCTL_T, KC_RBRC)
         ENABLE_MOD_TAP(LCTL_T, KC_DQUO)
     }
     return true;
