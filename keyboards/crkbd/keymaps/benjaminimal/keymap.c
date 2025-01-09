@@ -67,9 +67,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
     [FNC] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-            KC_TRNS, KC_ESC, KC_NUM, KC_SCRL, KC_PAUS, KC_F6, KC_F7, KC_PSCR, KC_NO, KC_NO, KC_NO, KC_TRNS,
+            KC_TRNS, KC_ESC, KC_NUM, KC_SCRL, KC_PAUS, KC_F11, KC_F12, KC_PSCR, KC_NO, KC_NO, KC_NO, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_TRNS, LCTL_T(KC_F1), LGUI_T(KC_F2), LALT_T(KC_F3), LSFT_T(KC_F4), KC_F5, KC_F8, RSFT_T(KC_F9), RALT_T(KC_F10), RGUI_T(KC_F11), RCTL_T(KC_F12), KC_TRNS,
+            KC_TRNS, LCTL_T(KC_F1), LGUI_T(KC_F2), LALT_T(KC_F3), LSFT_T(KC_F4), KC_F5, KC_F6, RSFT_T(KC_F7), RALT_T(KC_F8), RGUI_T(KC_F9), RCTL_T(KC_F10), KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
             QK_LLCK, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, QK_LLCK,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
