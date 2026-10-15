@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "german_input.h"
 #if __has_include("keymap.h")
 #    include "keymap.h"
 #endif
@@ -20,6 +21,10 @@
 
 enum my_keycodes {
   MY_1 = SAFE_RANGE,  // Workaround KC_1 to enable usage of LCTL_T for KC_EXLM
+  MY_AE,
+  MY_OE,
+  MY_UE,
+  MY_SS,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -40,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |-------------+-------------+-------------+-------------+-------------+-------------|       |-------------+-------------+-------------+-------------+-------------+-------------|
         KC_TRNS,      LC(KC_EXLM),  LG(KC_DQUO),  LA(KC_AT),    RS(KC_QUOT),  KC_GRV,               KC_CIRC,      LS(KC_LPRN),  LA(KC_RPRN),  RG(KC_LBRC),  RC(KC_RBRC),  KC_TRNS,
     // |-------------+-------------+-------------+-------------+-------------+-------------|       |-------------+-------------+-------------+-------------+-------------+-------------|
-        KC_TRNS,      KC_LCTL,      KC_LGUI,      KC_LALT,      KC_LSFT,      KC_NO,                KC_NO,        KC_RSFT,      KC_LALT,      KC_RGUI,      KC_RCTL,      KC_TRNS,
+        KC_TRNS,      KC_LCTL,      KC_LGUI,      MY_SS,        MY_AE,        KC_NO,                KC_NO,        MY_OE,        MY_UE,        KC_RGUI,      KC_RCTL,      KC_TRNS,
     // `-------------+-------------+-------------+-------------+-------------+-------------|       |-------------+-------------+-------------+-------------+-------------+-------------'
                                                   KC_TRNS,      KC_TRNS,      KC_TRNS,              KC_TRNS,      KC_TRNS,      KC_TRNS
     //                                           `-----------------------------------------'       `-----------------------------------------'
@@ -107,6 +112,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        // Send German characters using the detected OS's native input sequences.
+        case MY_AE:
+        case MY_OE:
+        case MY_UE:
+        case MY_SS:
+            if (record->event.pressed) {
+                send_german_character((german_character_t)(keycode - MY_AE));
+            }
+            return false;
+        // Mod-tap only stores basic tap keycodes. Handle shifted symbols explicitly
+        // and translate the MY_1 placeholder back to KC_1 on the number layer.
         case LCTL_T(MY_1):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_1);
